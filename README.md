@@ -1,3 +1,31 @@
+# My Solutions:
+
+## For PayPal
+
+1. Inspected password and log in button fields on the website to see what the id was.
+2. Works for https://www.paypal.com/signin. Added conditional to get change ids in getPasswordField and getSubmitButton to password and btnLogin if window.location.href contained "paypal".
+
+## For Instagram
+
+1. Inspected username, password, and log in button fields to see what to select them by.
+2. If window.location.href contained "instagram", selected username and password by selecting for input with attribute name = username or attribute password = password. Selected log in button by looking for button with the appropriate classes.
+
+## For Bank of America
+
+1. Inspected username, password, and log in button fields to see what to select them by.
+2. Selected username, password, and log in buttons by id. getFormField only drew the box around the username and password fields so I also had to add a conditional to getFormField for when the url contained "www.bankofamerica.com" and to select the form by id.
+3. Repeated the process for "secure.bankofamerica.com", except didn't add a conditional for getFormField because the default "getUsernameField().closest('form')" worked fine. Login option is currently failing to click the log in button.
+
+## For Citi
+
+1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "online.citi.com".
+2. Login won't register the username that's input unless it's actually typed in.
+
+## For Yahoo
+
+1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "login.yahoo.com".
+2. Added conditional for when window.location.href contains "login.yahoo.com" to check for when submit button's text is not "Next". When the Login option on the Chrome extension is selected, it checks every 500 ms to see if the "Next" submit button has been clicked already, and clicks the "Sign in" submit button when it finally renders instead of the "Next" submit button. Or times out after ~10 seconds, whichever comes first.
+
 The challenge is to be able to do the following actions in a given website:
  * Trigger form submit with a pair of credentials.
  * Find the form elements in the dom.
@@ -36,29 +64,3 @@ In case that you need to preserve a global state across several pages you can us
 that is in this folder.
 More about background scripts: https://developer.chrome.com/extensions/background_pages
 More about communication with the background script: https://developer.chrome.com/extensions/nativeMessaging
-
-# For PayPal
-
-1. Inspected password and log in button fields on the website to see what the id was.
-2. Works for https://www.paypal.com/signin. Added conditional to get change ids in getPasswordField and getSubmitButton to password and btnLogin if window.location.href contained "paypal".
-
-# For Instagram
-
-1. Inspected username, password, and log in button fields to see what to select them by.
-2. If window.location.href contained "instagram", selected username and password by selecting for input with attribute name = username or attribute password = password. Selected log in button by looking for button with the appropriate classes.
-
-# For Bank of America
-
-1. Inspected username, password, and log in button fields to see what to select them by.
-2. Selected username, password, and log in buttons by id. getFormField only drew the box around the username and password fields so I also had to add a conditional to getFormField for when the url contained "www.bankofamerica.com" and to select the form by id.
-3. Repeated the process for "secure.bankofamerica.com", except didn't add a conditional for getFormField because the default "getUsernameField().closest('form')" worked fine. Login option is currently failing to click the log in button.
-
-# For Citi
-
-1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "online.citi.com".
-2. Login won't register the username that's input unless it's actually typed in.
-
-# For Yahoo
-
-1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "login.yahoo.com".
-2. Added conditional for when window.location.href contains "login.yahoo.com" to check for when submit button's text is not "Next". When the Login option on the Chrome extension is selected, it checks every 500 ms to see if the "Next" submit button has been clicked already, and clicks the "Sign in" submit button when it finally renders instead of the "Next" submit button. Or times out after ~10 seconds, whichever comes first.

@@ -84,10 +84,13 @@ window.loginWithCredentials = function(username, password) {
   usernameField.val(username);
   passwordField.val(password);
 
-  if (window.location.href.toLowerCase().indexOf("online.citi.com") !== -1) {
-    console.log("attempting to press key");
-    usernameField.trigger(jQuery.Event('keypress', {keyCode: 65}));
-  }
+  // if (window.location.href.toLowerCase().indexOf("online.citi.com") !== -1) {
+  //   console.log("attempting to press key");
+  //   var e = jQuery.Event("keydown");
+  //   e.which = 65;
+  //   e.keyCode = 65;
+  //   usernameField.trigger(e);
+  // }
 
   setTimeout(() => {
   	getSubmitButton().click();
@@ -95,7 +98,7 @@ window.loginWithCredentials = function(username, password) {
 
   if (window.location.href.toLowerCase().indexOf("login.yahoo.com") !== -1) {
     var totalTimePassed = 0;
-    
+
     var submitYahooPassword = () => {
       if (getSubmitButton().text() === "Next" && totalTimePassed < 10000) {
         setTimeout(submitYahooPassword, 500);
@@ -124,12 +127,10 @@ window.detectFormFields = function() {
   //
   // XXX: Modify this code, if necessary, to work on more sites.
   //
-  console.log("form field", getFormField());
-  console.log("submit button", getSubmitButton());
-  console.log("username", getUsernameField());
-  console.log(getUsernameField().length);
-  console.log("password", getPasswordField());
-  console.log(getPasswordField().length);
+  // console.log("form field", getFormField());
+  // console.log("submit button", getSubmitButton());
+  // console.log("username", getUsernameField());
+  // console.log("password", getPasswordField());
 
   return {
     form: getFormField(),
