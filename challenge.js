@@ -90,14 +90,16 @@ window.loginWithCredentials = function(username, password) {
   }
 
   setTimeout(() => {
-  	console.log("get submit button", getSubmitButton().click());
+  	getSubmitButton().click();
   }, 1000)
 
   if (window.location.href.toLowerCase().indexOf("login.yahoo.com") !== -1) {
+    var totalTimePassed = 0;
+    
     var submitYahooPassword = () => {
-      console.log("submit yahoo password");
-      if (getSubmitButton().text() === "Next") {
+      if (getSubmitButton().text() === "Next" && totalTimePassed < 10000) {
         setTimeout(submitYahooPassword, 500);
+        totalTimePassed += 500
       } else {
         getSubmitButton().click();
       }

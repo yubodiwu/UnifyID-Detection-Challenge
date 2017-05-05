@@ -55,5 +55,10 @@ More about communication with the background script: https://developer.chrome.co
 
 # For Citi
 
-1. Inspected fields to see what ids to select them by and selected the correct ids when window.location.href contained "online.citi.com".
+1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "online.citi.com".
 2. Login won't register the username that's input unless it's actually typed in.
+
+# For Yahoo
+
+1. Inspected fields to see what ids to select them by and selected the correct ids for username, password, and log in button when window.location.href contained "login.yahoo.com".
+2. Added conditional for when window.location.href contains "login.yahoo.com" to check for when submit button's text is not "Next". When the Login option on the Chrome extension is selected, it checks every 500 ms to see if the "Next" submit button has been clicked already, and clicks the "Sign in" submit button when it finally renders instead of the "Next" submit button. Or times out after ~10 seconds, whichever comes first.
